@@ -1,0 +1,247 @@
+definitions:
+  models.Beyblade:
+    properties:
+      SpecialMonsterID:
+        type: integer
+      damage:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      owner_id:
+        type: integer
+      shield:
+        type: integer
+    type: object
+  models.Monster:
+    properties:
+      Name:
+        type: string
+      elements:
+        type: string
+      id:
+        type: integer
+      specialattack:
+        type: string
+    type: object
+  models.User:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      surname:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /beyblade:
+    get:
+      consumes:
+      - application/json
+      description: get string beyblade
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Beyblade'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: ListBeyblade
+      tags:
+      - beyblade
+    post:
+      consumes:
+      - application/json
+      description: create by beyblade
+      parameters:
+      - description: Beyblade bilgileri
+        in: body
+        name: beyblade
+        required: true
+        schema:
+          $ref: '#/definitions/models.Beyblade'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Beyblade'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: create an beyblade
+      tags:
+      - beyblade
+  /beyblade/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete by id beyblade
+      parameters:
+      - description: Beyblade ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Beyblade'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: DeleteBeyblade an beyblade
+      tags:
+      - beyblade
+  /monster:
+    get:
+      consumes:
+      - application/json
+      description: get string monster
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Monster'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: ListMonster
+      tags:
+      - monster
+    post:
+      consumes:
+      - application/json
+      description: create by monster
+      parameters:
+      - description: Monster bilgileri
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.Monster'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Monster'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: create an monster
+      tags:
+      - monster
+  /monster/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete by id monster
+      parameters:
+      - description: Monster ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Monster'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: DeleteMonster an user
+      tags:
+      - monster
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: get string user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: ListUsers
+      tags:
+      - user
+    post:
+      consumes:
+      - application/json
+      description: create by user
+      parameters:
+      - description: User bilgileri
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: create an user
+      tags:
+      - user
+  /user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete by id user
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: DeleteUser an user
+      tags:
+      - user
+swagger: "2.0"

@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: database
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - my-app
+
+  api:
+    image: go:2
+    container_name: goAPI
+    ports:
+      - "3000:3000"
+    networks:
+      - my-app
+    depends_on:
+      - postgres
+
+networks:
+  my-app:
+
